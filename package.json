@@ -1,0 +1,151 @@
+{
+  "name": "fox",
+  "displayName": "Fox",
+  "description": "A rapid prototyping playground for python",
+  "version": "0.1.0",
+  "publisher": "MalcomnM",
+  "license": "Apache-2.0",
+  "engines": {
+    "vscode": "^1.12.0"
+  },
+  "categories": [
+    "Debuggers",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:fox.barkAtCurrentFile",
+    "onCommand:fox.touchBarStart"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Fox configuration",
+      "properties": {
+        "fox.updateFrequency": {
+          "type": "number",
+          "default": 500,
+          "description": "Set the minimum time between Fox live updates in milliseconds. A higher number means a longer time between updates. (Valid range: 100 - 1000)"
+        },
+        "fox.disableHotModeWarning": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disables the Hot Mode warning upon entering a fox session."
+        },
+        "fox.maxLineLength": {
+          "type": "number",
+          "default": 100,
+          "description": "The maximum length of line decorations. Lines longer than this are truncated (ex: 97, 98, 99, ... )"
+        },
+        "fox.printLoggingEnabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Display Fox console output."
+        },
+        "fox.logErrors": {
+          "type": "boolean",
+          "default": false,
+          "description": "Display all errors in the console output."
+        },
+        "fox.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "which python to use - MUST be version 3.5 or greater"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "fox.barkAtCurrentFile",
+        "category": "fox",
+        "title": "Set the Fox on the current file.",
+        "icon": {
+          "light": "./media/fox-gray.png",
+          "dark": "./media/fox-gray.png"
+        }
+      },
+      {
+        "command": "fox.stopBarking",
+        "category": "fox",
+        "title": "Stops all running Fox sessions.",
+        "icon": {
+          "light": "./media/fox-light-green.png",
+          "dark": "./media/fox-light-green.png"
+        }
+      },
+      {
+        "command": "fox.touchBarStart",
+        "title": "Set the Fox on the current file.",
+        "icon": {
+          "light": "./media/fox-dark-blue-border.png",
+          "dark": "./media/fox-dark-blue-border.png"
+        }
+      },
+      {
+        "command": "fox.touchBarStop",
+        "title": "Stops all running Fox sessions.",
+        "icon": {
+          "light": "./media/fox-red-border.png",
+          "dark": "./media/fox-red-border.png"
+        }
+      }
+    ],
+    "menus": {
+      "touchBar": [
+        {
+          "command": "fox.touchBarStop",
+          "when": "inFoxContext"
+        },
+        {
+          "command": "fox.touchBarStart",
+          "when": "editorLangId == python && !inFoxContext"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "fox.stopBarking",
+          "when": "inFoxContext",
+          "group": "navigation"
+        },
+        {
+          "command": "fox.barkAtCurrentFile",
+          "when": "editorLangId == python && !inFoxContext",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "repository": {
+    "url": "https://github.com/Duroktar/Fox"
+  },
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#6495ed"
+  },
+  "build": {
+    "extraResources": "scripts"
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./",
+    "compile": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test",
+    "ext:package": "vsce package",
+    "ext:publish": "vsce publish",
+    "gen:snapshot": "python scripts/fox.py scripts/testInputs/complex.test.py > scripts/testInputs/complex.snapshot.py36"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.32",
+    "@types/node": "^6.0.101",
+    "electron": "^1.8.8",
+    "electron-rebuild": "^1.7.3",
+    "mocha": "^2.3.3",
+    "typescript": "^2.7.2",
+    "vsce": "^1.37.1",
+    "vscode": "^1.1.36"
+  },
+  "dependencies": {
+    "js-beautify": "^1.7.5",
+    "tmp": "0.0.33"
+  }
+}

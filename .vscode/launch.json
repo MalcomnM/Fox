@@ -1,0 +1,82 @@
+// A launch configuration that compiles the extension and then opens it inside a new window
+{
+  "version": "0.1.0",
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "stopOnEntry": true,
+      "pythonPath": "${config:python.pythonPath}",
+      "program": "${file}",
+      "cwd": "${workspaceFolder}",
+      "env": {},
+      "envFile": "${workspaceFolder}/.env",
+      "debugOptions": ["RedirectOutput"]
+    },
+    {
+      "name": "fox.py Debug Session Windows",
+      "type": "python",
+      "request": "launch",
+      "stopOnEntry": true,
+      "pythonPath": "${config:python.pythonPath}",
+      "program": "${workspaceFolder}/\\scripts/\\fox.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "FOX_DEBUG_SESSION": true
+      },
+      "envFile": "${workspaceFolder}/.env",
+      "debugOptions": ["RedirectOutput"],
+      "args": ["${workspaceFolder}/scripts/test.py"]
+    },
+    {
+      "name": "fox.py Debug Session Linux/OSX",
+      "type": "python",
+      "request": "launch",
+      "stopOnEntry": true,
+      "pythonPath": "${config:python.pythonPath}",
+      "program": "${workspaceFolder}/scripts/fox.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "FOX_DEBUG_SESSION": true
+      },
+      "envFile": "${workspaceFolder}/.env",
+      "debugOptions": ["RedirectOutput"],
+      "args": ["${workspaceFolder}/scripts/test.py"]
+    },
+    {
+      "name": "Launch Extension",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": ["--extensionDevelopmentPath=${workspaceRoot}"],
+      "stopOnEntry": false,
+      "sourceMaps": true,
+      "outFiles": ["${workspaceRoot}/out/src/**/*.js"]
+    },
+    {
+      "name": "Launch Tests",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceRoot}",
+        "--extensionTestsPath=${workspaceRoot}/out/test"
+      ],
+      "stopOnEntry": false,
+      "sourceMaps": true,
+      "outFiles": ["${workspaceRoot}/out/test/**/*.js"]
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to Extension Host",
+      "protocol": "inspector",
+      "port": 5870,
+      "restart": true,
+      "outFiles": ["${workspaceRoot}/out/src"]
+    }
+  ]
+}
