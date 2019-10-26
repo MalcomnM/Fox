@@ -3,7 +3,8 @@
 Fox is a VsCode extension that runs your code on save and displays various execution results in your code editor.
 
 It was inspired by [`Quokka.js:`](https://quokkajs.com/) `The Rapid Prototyping Playground for JavaScript and TypeScript`.
----
+
+
 ### View variables inline
 ![Example-1](images/Example-1.png)
 ---
