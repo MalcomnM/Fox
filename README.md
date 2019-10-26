@@ -5,25 +5,25 @@ Fox is a VsCode extension that runs your code on save and displays various execu
 It was inspired by [`Quokka.js:`](https://quokkajs.com/) `The Rapid Prototyping Playground for JavaScript and TypeScript`.
 
 ### View variables inline
-![example](images/example-1.png)
+![example-1](images/example-1.png)
 
 ### Works with print
-![example](images/example-2.png)
+![example-2](images/example-2.png)
 
 ### Comment Macro
-![example](images/example-3.png)
+![example-3](images/example-3.png)
 
 ### Works with loops
-![example](images/example-4.png)
+![example-4](images/example-4.png)
 
 ### Works with http requests
-![example](images/example-5.png)
+![example-5](images/example-5.png)
 
 ### Highlights errors
-![example](images/example-6.png)
+![example-6](images/example-6.png)
 
 ### Lines after errors are not annotated
-![example](images/example-7.png)
+![example-7](images/example-7.png)
 
 ## License
 
