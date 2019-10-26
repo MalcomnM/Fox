@@ -12,4 +12,4 @@ terms, the most direct of which are listed below.
 
 ## Third Party Libraries
 
-[Hunter](https://github.com/ionelmc/python-hunter) - Hunter is a flexible code tracing toolkit. (Honestly, I couldn't have made Fox without this library.) - [BSD License](https://github.com/ionelmc/python-hunter/blob/master/LICENSE)
+[Hunter](https://github.com/ionelmc/python-hunter) - Hunter is a flexible code tracing toolkit. - [BSD License](https://github.com/ionelmc/python-hunter/blob/master/LICENSE)
