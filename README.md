@@ -1,6 +1,6 @@
 # Fox - Rapid Prototyping Playground for Python
 
-Fox is a VsCode extension that runs your code on save and displays various execution results in your code editor.
+[`Fox`](https://marketplace.visualstudio.com/items?itemName=MalcomnM.fox) is a VsCode extension that runs your code on save and displays various execution results in your code editor.
 
 It was inspired by [`Quokka.js:`](https://quokkajs.com/) `The Rapid Prototyping Playground for JavaScript and TypeScript`.
 
