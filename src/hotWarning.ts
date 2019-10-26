@@ -5,10 +5,7 @@ export function hotModeWarning() {
   const disableWarnings: MessageItem = { title: "Don't ask again" };
 
   const notificationText =
-    "Fox evalutes your code when you stop typing for a while. You can " +
-    'change the delay by editing "updateFrequency" in settings. If you ' +
-    "are writing changes to the filesystem or calling external API's you " +
-    "should consider cacheing the calls or increasing this value.";
+    "Fox evalutes your code on save.";
 
   if (config.get("disableHotModeWarning") !== true) {
     window

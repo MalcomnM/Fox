@@ -7,7 +7,7 @@ import {
 
 import { foxStandardApiFactory, FoxAPI } from "./api";
 import { ActiveTextEditorChangeEventResult } from "./types";
-import { clamp, registerCommand } from "./utils";
+import { registerCommand } from "./utils";
 
 export function activate(context: ExtensionContext) {
   const output: OutputChannel = vscode.window.createOutputChannel("Fox");
@@ -54,7 +54,7 @@ export function activate(context: ExtensionContext) {
         if (foxAPI.configChanged) {
           vscode.window.showInformationMessage(
             "Fox detected a change to the Hot Mode configuration and was shut off.. " +
-              "Attempting to restart."
+            "Attempting to restart."
           );
           foxAPI.setConfigUpdatedFlag(false);
           stopFox();
@@ -98,12 +98,15 @@ export function activate(context: ExtensionContext) {
   function throttledHandleDidChangeTextDocument(
     event: TextDocumentChangeEvent
   ): void {
-    if (updateTimeout) {
-      clearTimeout(updateTimeout);
+    if (!foxAPI.activeEditorIsDirty) {
+      foxAPI.handleDidChangeTextDocument(event.document)
     }
-    updateTimeout = setTimeout(
-      () => foxAPI.handleDidChangeTextDocument(event.document),
-      clamp(100, 10000, foxAPI.updateFrequency)
-    );
+    // if (updateTimeout) {
+    //   clearTimeout(updateTimeout);
+    // }
+    // updateTimeout = setTimeout(
+    //   () => foxAPI.handleDidChangeTextDocument(event.document),
+    //   clamp(100, 10000, foxAPI.updateFrequency)
+    // );
   }
 }
