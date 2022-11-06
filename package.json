@@ -139,7 +139,7 @@
     "@types/node": "^6.0.101",
     "electron": "^1.8.8",
     "electron-rebuild": "^1.7.3",
-    "mocha": "^2.3.3",
+    "mocha": "^10.1.0",
     "typescript": "^2.7.2",
     "vsce": "^1.37.1",
     "vscode": "^1.1.36"
